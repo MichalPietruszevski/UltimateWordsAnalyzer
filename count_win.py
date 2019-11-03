@@ -1,6 +1,5 @@
-import tkinter as tk 
+import tkinter as tk
 import re
-from PIL import ImageTk,Image
 from tkinter import filedialog
 
 
@@ -16,21 +15,21 @@ class Count_app:
 		#self.master.filename = filedialog.askopenfilename(initialdir='books/', title='Select a file', filetypes=(('txt files','*.txt'),('all files','*.*')))
 
 		self.frame = tk.Frame(self.master)
-		
+
 		#Creat info lable
 		self.text_for_info  = "Choose directory for right .txt file\n and enter your word to counting."
 		self.info_menu = tk.Label(self.frame, text = self.text_for_info)
-		
+
 		self.direc = tk.Button(self.frame, text = 'Search for text', command = self.loc_of_file)
-		
+
 		self.show_directory = tk.Label(self.frame, text = '')
-		
+
 		self.word_field = tk.Entry(self.frame,bd = 5, width=30)
-		
-		self.word_count_butt = tk.Button(self.frame, text='Enter your word', command = self.click_to_count) 
-		
+
+		self.word_count_butt = tk.Button(self.frame, text='Enter your word', command = self.click_to_count)
+
 		self.display_number = tk.Label(self.frame,  text='', font=('Ariel', 30))
-		
+
 		self.info_menu.pack()
 		self.direc.pack()
 		self.show_directory.pack()
@@ -38,11 +37,12 @@ class Count_app:
 		self.word_count_butt.pack()
 		self.display_number.pack()
 		self.frame.pack()
-		
+
 	def loc_of_file(self):
-		self.master.filename = filedialog.askopenfilename(initialdir='books/', title='Select a file', filetypes=(('txt files','*.txt'),('all files','*.*')))
+		self.master.filename = filedialog.askopenfilename(initialdir='books/',
+				title='Select a file', filetypes=(('txt files','*.txt'),('all files','*.*')))
 		self.show_directory.config(text = self.master.filename)
-		
+
 	def count_words(self,pattern, path_to_book):
 		self.occurence = 0
 		self.path_to_book = path_to_book
@@ -61,6 +61,3 @@ class Count_app:
 		except AttributeError:
 			self.text_of_empty_dir_error = "Choose directory first"
 			self.display_number.config(font = ('Arial',12), text= self.text_of_empty_dir_error)
-		
-		
-		
