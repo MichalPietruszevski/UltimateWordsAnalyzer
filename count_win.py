@@ -4,6 +4,8 @@ from tkinter import filedialog
 
 
 
+
+
 #Create window for choosing directory to txt file and counting word frequency in that.
 class Count_app:
 	#Set initial options
